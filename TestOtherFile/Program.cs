@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
 using System.Diagnostics;
+using TestOtherFile.Config;
+using Utilities.IO;
+using FileInfo = Utilities.IO.FileInfo;
 
 namespace TestOtherFile
 {
@@ -12,6 +15,29 @@ namespace TestOtherFile
     {
         static void Main(string[] args)
         {
+
+            var jsonFile = new FileInfo(@"./Config/tsconfig.json");
+            if (!jsonFile.Exists)
+            {
+                return ;
+            }
+
+            var jsonSerialize = new Utilities.IO.Serializers.Default.JSONSerializer();
+            var testConfig = jsonSerialize.Deserialize(typeof(TestConfig), jsonFile);
+            
+            var appConfig = testConfig as TestConfig;
+            appConfig.IsMark = 20;
+            var a=jsonSerialize.Serialize(typeof(TestConfig), appConfig);
+            jsonFile.Write(a);
+            Console.WriteLine(a);
+            if (appConfig == null)
+            {
+                return ;
+            }
+
+            Console.WriteLine(appConfig.IsMark);
+
+
             TestOtherFile app = new TestOtherFile();
             try
             {
