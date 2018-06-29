@@ -125,12 +125,14 @@
             this.toggleButtonMarkYes.Label = "YES 标记";
             this.toggleButtonMarkYes.Name = "toggleButtonMarkYes";
             this.toggleButtonMarkYes.ShowImage = true;
+            this.toggleButtonMarkYes.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonMarkYes_Click);
             // 
             // toggleButtonMarkNo
             // 
             this.toggleButtonMarkNo.Label = "NO 标记";
             this.toggleButtonMarkNo.Name = "toggleButtonMarkNo";
             this.toggleButtonMarkNo.ShowImage = true;
+            this.toggleButtonMarkNo.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonMarkNo_Click);
             // 
             // Sensitive
             // 

@@ -5,21 +5,53 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using ExcelAddInTest.Config;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
+using Utilities.IO;
 
 namespace ExcelAddInTest
 {
     public partial class ThisAddIn
     {
+
+        public AddinConfig AppConfig;
+        public FileInfo AppConfigFileInfo;
+
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             // this.Application.WorkbookOpen += Application_WorkbookOpen;
             //(this.Application as Excel.AppEvents_Event).NewWorkbook += ThisAddIn_NewWorkbook;
             this.Application.WorkbookActivate += Application_WorkbookActivate;
 
+            //var jsonFile = new FileInfo(@"./Config/AddinConfig.json");
+            var jsonFile=new FileInfo(@"D:\code\VideoConferenceSelfService\ExcelAddInTest\ExcelAddInTest\bin\Debug\Config\AddinConfig.json");
+
+            if (jsonFile.Exists)
+            {
+                var jsonSerialize = new Utilities.IO.Serializers.Default.JSONSerializer();
+                var testConfig = jsonSerialize.Deserialize(typeof(AddinConfig), jsonFile);
+                AppConfigFileInfo = jsonFile;
+                AppConfig = testConfig as AddinConfig;
+
+                if (AppConfig !=null)
+                {
+                    if (AppConfig.IsMark)
+                    {
+                        Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = true;
+                        Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = false;
+                    }
+                    else
+                    {
+                        Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = true;
+                    }
+                }
+            }
+            
         }
+
 
 
         /// <summary>

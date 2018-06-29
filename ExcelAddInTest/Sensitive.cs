@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ExcelAddInTest.Config;
 using Microsoft.Office.Tools.Ribbon;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
@@ -78,6 +79,41 @@ namespace ExcelAddInTest
         private void toggleButtonPublic_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Public");
+        }
+
+        private void toggleButtonMarkYes_Click(object sender, RibbonControlEventArgs e)
+        {
+            Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = true;
+            Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = false;
+
+            var appConfig = Globals.ThisAddIn.AppConfig;
+            var jsonFile = Globals.ThisAddIn.AppConfigFileInfo;
+
+            if (appConfig!=null && jsonFile!=null)
+            {
+                appConfig.IsMark = true;
+                var jsonSerialize = new Utilities.IO.Serializers.Default.JSONSerializer();
+                var varCofig= jsonSerialize.Serialize(typeof(AddinConfig), appConfig);
+                jsonFile.Write(varCofig);
+            }
+
+        }
+
+        private void toggleButtonMarkNo_Click(object sender, RibbonControlEventArgs e)
+        {
+            Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = false;
+            Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = true;
+
+            var appConfig = Globals.ThisAddIn.AppConfig;
+            var jsonFile = Globals.ThisAddIn.AppConfigFileInfo;
+
+            if (appConfig != null && jsonFile != null)
+            {
+                appConfig.IsMark = false;
+                var jsonSerialize = new Utilities.IO.Serializers.Default.JSONSerializer();
+                var varCofig = jsonSerialize.Serialize(typeof(AddinConfig), appConfig);
+                jsonFile.Write(varCofig);
+            }
         }
     }
 }
