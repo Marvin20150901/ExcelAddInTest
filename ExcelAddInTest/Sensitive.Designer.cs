@@ -42,8 +42,8 @@
             this.toggleButtonConfidential = this.Factory.CreateRibbonToggleButton();
             this.toggleButtonInternal = this.Factory.CreateRibbonToggleButton();
             this.toggleButtonPublic = this.Factory.CreateRibbonToggleButton();
-            this.splitButtonMark = this.Factory.CreateRibbonSplitButton();
             this.separator1 = this.Factory.CreateRibbonSeparator();
+            this.splitButtonMark = this.Factory.CreateRibbonSplitButton();
             this.toggleButtonMarkYes = this.Factory.CreateRibbonToggleButton();
             this.toggleButtonMarkNo = this.Factory.CreateRibbonToggleButton();
             this.tab1.SuspendLayout();
@@ -92,18 +92,25 @@
             this.toggleButtonConfidential.Label = "普通商迷";
             this.toggleButtonConfidential.Name = "toggleButtonConfidential";
             this.toggleButtonConfidential.ShowImage = true;
+            this.toggleButtonConfidential.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonConfidential_Click);
             // 
             // toggleButtonInternal
             // 
             this.toggleButtonInternal.Label = "内部文件";
             this.toggleButtonInternal.Name = "toggleButtonInternal";
             this.toggleButtonInternal.ShowImage = true;
+            this.toggleButtonInternal.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonInternal_Click);
             // 
             // toggleButtonPublic
             // 
             this.toggleButtonPublic.Label = "公开文件";
             this.toggleButtonPublic.Name = "toggleButtonPublic";
             this.toggleButtonPublic.ShowImage = true;
+            this.toggleButtonPublic.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonPublic_Click);
+            // 
+            // separator1
+            // 
+            this.separator1.Name = "separator1";
             // 
             // splitButtonMark
             // 
@@ -112,10 +119,6 @@
             this.splitButtonMark.Items.Add(this.toggleButtonMarkNo);
             this.splitButtonMark.Label = "首页标记";
             this.splitButtonMark.Name = "splitButtonMark";
-            // 
-            // separator1
-            // 
-            this.separator1.Name = "separator1";
             // 
             // toggleButtonMarkYes
             // 
