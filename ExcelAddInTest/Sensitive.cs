@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using ExcelAddInTest.Config;
 using Microsoft.Office.Tools.Ribbon;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
@@ -23,16 +24,31 @@ namespace ExcelAddInTest
 
         }
 
+
+        /// <summary>
+        /// secret level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonSecret_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Secret");
+            var activeSheet = (Excel.Worksheet) Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet;
+            //activeSheet.PageSetup.LeftHeaderPicture.Filename
+
+
         }
 
+        /// <summary>
+        /// set the confidential level
+        /// </summary>
+        /// <param name="sensitive"> confidential level string</param>
         private void SetWorkbookSensitive(string sensitive)
         {
 
             try
             {
+
                 Office.DocumentProperties prp = Globals.ThisAddIn.Application.ActiveWorkbook.CustomDocumentProperties;
 
                 bool isSenitive = false;
@@ -58,61 +74,90 @@ namespace ExcelAddInTest
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-
-            
         }
 
+
+        /// <summary>
+        /// confidential level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonConfidential_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Confidential");
 
         }
 
+
+        /// <summary>
+        /// Internal level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonInternal_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Internal");
         }
 
+        /// <summary>
+        /// Public level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonPublic_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Public");
         }
 
+        /// <summary>
+        /// Yes button to mark 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonMarkYes_Click(object sender, RibbonControlEventArgs e)
         {
             Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = true;
             Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = false;
 
-            var appConfig = Globals.ThisAddIn.AppConfig;
-            var jsonFile = Globals.ThisAddIn.AppConfigFileInfo;
-
-            if (appConfig!=null && jsonFile!=null)
+            try
             {
-                appConfig.IsMark = true;
-                var jsonSerialize = new Utilities.IO.Serializers.Default.JSONSerializer();
-                var varCofig= jsonSerialize.Serialize(typeof(AddinConfig), appConfig);
-                jsonFile.Write(varCofig);
+                Globals.ThisAddIn.IsMask = "true";
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings["isMask"].Value = "true";
+                config.Save();
+                }
+            catch (Exception)
+            {
+                
+                throw;
             }
-
+            
         }
 
+        /// <summary>
+        /// Yes button to mark
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonMarkNo_Click(object sender, RibbonControlEventArgs e)
         {
             Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = false;
             Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = true;
 
-            var appConfig = Globals.ThisAddIn.AppConfig;
-            var jsonFile = Globals.ThisAddIn.AppConfigFileInfo;
-
-            if (appConfig != null && jsonFile != null)
+            try
             {
-                appConfig.IsMark = false;
-                var jsonSerialize = new Utilities.IO.Serializers.Default.JSONSerializer();
-                var varCofig = jsonSerialize.Serialize(typeof(AddinConfig), appConfig);
-                jsonFile.Write(varCofig);
+                Globals.ThisAddIn.IsMask = "false";
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings["isMask"].Value = "false";
+                config.Save();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using ExcelAddInTest.Config;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
+using Utilities.DataTypes;
 using Utilities.IO;
 
 namespace ExcelAddInTest
@@ -16,40 +17,45 @@ namespace ExcelAddInTest
     public partial class ThisAddIn
     {
 
-        public AddinConfig AppConfig;
-        public FileInfo AppConfigFileInfo;
+//        public AddinConfig AppConfig;
+//        public FileInfo AppConfigFileInfo;
+        public string IsMask;
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            // this.Application.WorkbookOpen += Application_WorkbookOpen;
-            //(this.Application as Excel.AppEvents_Event).NewWorkbook += ThisAddIn_NewWorkbook;
-            this.Application.WorkbookActivate += Application_WorkbookActivate;
 
-            //var jsonFile = new FileInfo(@"./Config/AddinConfig.json");
-            var jsonFile=new FileInfo(@"D:\code\VideoConferenceSelfService\ExcelAddInTest\ExcelAddInTest\bin\Debug\Config\AddinConfig.json");
-
-            if (jsonFile.Exists)
+           
+            try
             {
-                var jsonSerialize = new Utilities.IO.Serializers.Default.JSONSerializer();
-                var testConfig = jsonSerialize.Deserialize(typeof(AddinConfig), jsonFile);
-                AppConfigFileInfo = jsonFile;
-                AppConfig = testConfig as AddinConfig;
+                //get the appsetting config form app.config file
 
-                if (AppConfig !=null)
+                var t = ConfigurationManager.AppSettings["IsMask"];
+                IsMask = t;
+
+                //inite this rabbion
+
+                if (IsMask.Equals("true"))
                 {
-                    if (AppConfig.IsMark)
-                    {
-                        Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = true;
-                        Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = false;
-                    }
-                    else
-                    {
-                        Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = false;
-                        Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = true;
-                    }
+                    Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = true;
+                    Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = false;
                 }
+                else if (IsMask.Equals("false"))
+                {
+                    Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = false;
+                    Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = true;
+                }
+                else
+                {
+                    
+                }
+                                   
             }
-            
+            catch (Exception)
+            {
+                
+                throw;
+            }
+                      
         }
 
 
@@ -61,9 +67,6 @@ namespace ExcelAddInTest
         /// <param name="Wb"></param>
         private void Application_WorkbookActivate(Excel.Workbook Wb)
         {
-            //MessageBox.Show(Wb.Path);
-            //throw new NotImplementedException();
-            //Globals.Ribbons.Sensitive.toggleButtonSecret.Checked = true;
 
             try
             {
@@ -165,10 +168,6 @@ namespace ExcelAddInTest
         {
         }
 
-        private void ThisAddin_NewWorkbook(object sender, EventArgs e)
-        {
-            
-        }
 
         #region VSTO generated code
 

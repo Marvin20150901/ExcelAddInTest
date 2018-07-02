@@ -194,10 +194,11 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="Config\AddinConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <None Include="Resources\111.png" />
+    <None Include="Resources\Secret.Image.bmp" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -210,8 +211,7 @@
     <EmbeddedResource Include="Sensitive.resx">
       <DependentUpon>Sensitive.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
-    <Content Include="Config\AddinConfig.json">
+    <Content Include="app.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="ExcelAddInTest_TemporaryKey.pfx" />
