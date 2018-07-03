@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,8 +10,7 @@ using System.Xml.Linq;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
-using Utilities.DataTypes;
-using Utilities.IO;
+
 
 namespace ExcelAddInTest
 {
@@ -19,8 +19,12 @@ namespace ExcelAddInTest
 
 //        public AddinConfig AppConfig;
 //        public FileInfo AppConfigFileInfo;
-        public string IsMask;
 
+        /// <summary>
+        /// inite this rabbion and release the png file from the resources
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
 
@@ -29,26 +33,39 @@ namespace ExcelAddInTest
             {
                 //get the appsetting config form app.config file
 
-                var t = ConfigurationManager.AppSettings["IsMask"];
-                IsMask = t;
+
 
                 //inite this rabbion
 
-                if (IsMask.Equals("true"))
+                if (Properties.Settings.Default.IsMask)
                 {
                     Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = true;
                     Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = false;
                 }
-                else if (IsMask.Equals("false"))
+                else
                 {
                     Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = false;
                     Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = true;
                 }
-                else
+
+
+                //release the png from the resources
+                if (!File.Exists("Secret.png"))
                 {
-                    
+                    Properties.Resources.Secret.Save("Secret.png");
                 }
-                                   
+
+                if (!File.Exists("Confidential.png"))
+                {
+                    Properties.Resources.Confidential.Save("Confidential.png");
+                }
+
+                if (!File.Exists("Internal.png"))
+                {
+                    Properties.Resources.Internal.Save("Internal.png");
+                }
+
+
             }
             catch (Exception)
             {

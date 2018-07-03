@@ -32,6 +32,7 @@
     <DefineConstants>VSTO40</DefineConstants>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <BootstrapperComponentsLocation>HomeSite</BootstrapperComponentsLocation>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
@@ -76,6 +77,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
     <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <!--
     This section defines properties that are set when the "Release" configuration is selected.
@@ -100,6 +102,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
     <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <!--
     This section specifies references for the project.
@@ -145,18 +148,6 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Utilities.DataTypes, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2df25aefe5d08d5d, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-DataTypes.4.0.304\lib\net40\Utilities.DataTypes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Utilities.IO, Version=4.0.0.0, Culture=neutral, PublicKeyToken=4307908d64d1497c, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-IO.4.0.304\lib\net40\Utilities.IO.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Utilities.IoC, Version=4.0.0.0, Culture=neutral, PublicKeyToken=4a6f81c4d5621773, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-IoC.4.0.304\lib\net40\Utilities.IoC.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Tools.v4.0.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -197,8 +188,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <None Include="Resources\111.png" />
-    <None Include="Resources\Secret.Image.bmp" />
+    <None Include="Resources\Internal.png" />
+    <None Include="Resources\Confidential.png" />
+    <None Include="Resources\Secret.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -207,6 +199,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Sensitive.resx">
       <DependentUpon>Sensitive.cs</DependentUpon>
@@ -223,6 +216,7 @@
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Sensitive.cs">
       <SubType>Component</SubType>
@@ -245,6 +239,7 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -22,5 +22,17 @@ namespace ExcelAddInTest.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsMask {
+            get {
+                return ((bool)(this["IsMask"]));
+            }
+            set {
+                this["IsMask"] = value;
+            }
+        }
     }
 }

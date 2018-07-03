@@ -34,7 +34,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sensitive));
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.menuClass = this.Factory.CreateRibbonMenu();
@@ -68,7 +67,6 @@
             // 
             this.menuClass.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.menuClass.Description = "分类";
-            this.menuClass.Image = ((System.Drawing.Image)(resources.GetObject("menuClass.Image")));
             this.menuClass.ImageName = "Classification";
             this.menuClass.Items.Add(this.toggleButtonSecret);
             this.menuClass.Items.Add(this.toggleButtonConfidential);
@@ -78,13 +76,17 @@
             this.menuClass.Items.Add(this.splitButtonMark);
             this.menuClass.Label = "分类";
             this.menuClass.Name = "menuClass";
+            this.menuClass.OfficeImageId = "FileMarkAsFinal";
             this.menuClass.ShowImage = true;
+            this.menuClass.SuperTip = "Faw-vw Files Confidential level calibration, including digital markers and image " +
+    "tags; ";
             // 
             // toggleButtonSecret
             // 
             this.toggleButtonSecret.Label = "核心商密";
             this.toggleButtonSecret.Name = "toggleButtonSecret";
             this.toggleButtonSecret.ShowImage = true;
+            this.toggleButtonSecret.SuperTip = "Secret Level";
             this.toggleButtonSecret.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonSecret_Click);
             // 
             // toggleButtonConfidential
@@ -92,6 +94,7 @@
             this.toggleButtonConfidential.Label = "普通商迷";
             this.toggleButtonConfidential.Name = "toggleButtonConfidential";
             this.toggleButtonConfidential.ShowImage = true;
+            this.toggleButtonConfidential.SuperTip = "Confidential Level";
             this.toggleButtonConfidential.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonConfidential_Click);
             // 
             // toggleButtonInternal
@@ -99,6 +102,7 @@
             this.toggleButtonInternal.Label = "内部文件";
             this.toggleButtonInternal.Name = "toggleButtonInternal";
             this.toggleButtonInternal.ShowImage = true;
+            this.toggleButtonInternal.SuperTip = "Internal Level";
             this.toggleButtonInternal.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonInternal_Click);
             // 
             // toggleButtonPublic
@@ -106,6 +110,7 @@
             this.toggleButtonPublic.Label = "公开文件";
             this.toggleButtonPublic.Name = "toggleButtonPublic";
             this.toggleButtonPublic.ShowImage = true;
+            this.toggleButtonPublic.SuperTip = "Public Level";
             this.toggleButtonPublic.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonPublic_Click);
             // 
             // separator1
@@ -114,24 +119,27 @@
             // 
             // splitButtonMark
             // 
-            this.splitButtonMark.Image = ((System.Drawing.Image)(resources.GetObject("splitButtonMark.Image")));
             this.splitButtonMark.Items.Add(this.toggleButtonMarkYes);
             this.splitButtonMark.Items.Add(this.toggleButtonMarkNo);
-            this.splitButtonMark.Label = "首页标记";
+            this.splitButtonMark.Label = "可视标记";
             this.splitButtonMark.Name = "splitButtonMark";
+            this.splitButtonMark.OfficeImageId = "PostReplyToFolder";
+            this.splitButtonMark.SuperTip = "Whether to insert a tag image in the header?";
             // 
             // toggleButtonMarkYes
             // 
-            this.toggleButtonMarkYes.Label = "YES 标记";
+            this.toggleButtonMarkYes.Label = "YES 页眉标记";
             this.toggleButtonMarkYes.Name = "toggleButtonMarkYes";
             this.toggleButtonMarkYes.ShowImage = true;
+            this.toggleButtonMarkYes.SuperTip = "Insert a tag image in the header";
             this.toggleButtonMarkYes.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonMarkYes_Click);
             // 
             // toggleButtonMarkNo
             // 
-            this.toggleButtonMarkNo.Label = "NO 标记";
+            this.toggleButtonMarkNo.Label = "NO 页眉标记";
             this.toggleButtonMarkNo.Name = "toggleButtonMarkNo";
             this.toggleButtonMarkNo.ShowImage = true;
+            this.toggleButtonMarkNo.SuperTip = "Not insert a tag image in the header";
             this.toggleButtonMarkNo.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonMarkNo_Click);
             // 
             // Sensitive
