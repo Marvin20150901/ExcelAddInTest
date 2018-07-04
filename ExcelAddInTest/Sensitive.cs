@@ -16,11 +16,10 @@ namespace ExcelAddInTest
 {
     public partial class Sensitive
     {
-        private Excel.Application App;
 
         private void Sensitive_Load(object sender, RibbonUIEventArgs e)
         {
-            App = Globals.ThisAddIn.Application;
+
             
         }
 

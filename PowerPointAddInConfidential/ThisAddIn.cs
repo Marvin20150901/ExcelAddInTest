@@ -1,40 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using Excel = Microsoft.Office.Interop.Excel;
+using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using Office = Microsoft.Office.Core;
-using Microsoft.Office.Tools.Excel;
 
-
-namespace ExcelAddInTest
+namespace PowerPointAddInConfidential
 {
     public partial class ThisAddIn
     {
-
-//        public AddinConfig AppConfig;
-//        public FileInfo AppConfigFileInfo;
-
-        /// <summary>
-        /// inite this rabbion and release the png file from the resources
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            //this.Application.ActivePresentation.SlideMaster.Shapes.AddPicture()
+            //this.Application.ActivePresentation.CustomDocumentPropertie
+
+            //this.Application.PresentationOpen += Application_PresentationOpen;
+            this.Application.WindowActivate += Application_WindowActivate;
 
 
-            this.Application.WorkbookActivate += Application_WorkbookActivate;
-                      
             try
             {
                 //get the appsetting config form app.config file
-                
+
                 //inite this rabbion
 
                 if (Properties.Settings.Default.IsMask)
@@ -64,30 +54,26 @@ namespace ExcelAddInTest
                 {
                     Properties.Resources.Internal.Save("Internal.png");
                 }
-                
+
 
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-                    
+
+
         }
 
-
-
-        /// <summary>
-        /// Workbook changed or opened ,this function will be process
-        /// Get the workbook's meat data to init the ribbons
-        /// </summary>
-        /// <param name="Wb"></param>
-        private void Application_WorkbookActivate(Excel.Workbook Wb)
+        private void Application_WindowActivate(PowerPoint.Presentation Pres, PowerPoint.DocumentWindow Wn)
         {
+            //throw new NotImplementedException();
+            //            MessageBox.Show("hehe");
 
             try
             {
-                Office.DocumentProperties prp = this.Application.ActiveWorkbook.CustomDocumentProperties;
+                Office.DocumentProperties prp = this.Application.ActivePresentation.CustomDocumentProperties;
 
                 bool isSenitive = false;
 
@@ -107,10 +93,9 @@ namespace ExcelAddInTest
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());                
+                MessageBox.Show(e.ToString());
                 throw;
             }
-            
         }
 
 
@@ -123,7 +108,7 @@ namespace ExcelAddInTest
         {
             try
             {
-                if (sensitive!=string.Empty)
+                if (sensitive != string.Empty)
                 {
                     if (sensitive.Equals("Secret"))
                     {
@@ -179,9 +164,17 @@ namespace ExcelAddInTest
 
 
 
+
+
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
+
         }
+
+
+
+
+
 
 
         #region VSTO generated code
@@ -193,12 +186,9 @@ namespace ExcelAddInTest
         private void InternalStartup()
         {
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
-            this.Shutdown += new EventHandler(ThisAddIn_Shutdown);
-            
+            this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
         }
-
-
-
+        
         #endregion
     }
 }

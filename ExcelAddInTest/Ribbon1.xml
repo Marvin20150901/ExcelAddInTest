@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI onLoad="Ribbon_Load" xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+    <ribbon>
+        <tabs>
+            <tab idMso="TabHome">
+                <group id="group1" label="密级">
+                    <menu id="menuClass" imageMso="FileMarkAsFinal" supertip="对此Workbook进行密级标定，密级等级参考公司信息分类分级目录。" description="分类" label="分类" size="large">
+                        <toggleButton id="toggleButtonSecret" onAction="toggleButtonSecret_Click" supertip="公司核心商业信息，参考公司分类分级目录。" label="核心商密" />
+                        <toggleButton id="toggleButtonConfidential" onAction="toggleButtonConfidential_Click" supertip="公司普通商业秘密信息，参考公司信息分类分级目录。" label="普通商密" />
+                        <toggleButton id="toggleButtonInternal" onAction="toggleButtonInternal_Click" supertip="公司内部信息，参考公司信息分类分级目录。" label="内部文件" />
+                        <toggleButton id="toggleButtonPublic" onAction="toggleButtonPublic_Click" supertip="公司可公开披露信息，参考公司信息分类分级目录。" label="公开文件" />
+                        <menuSeparator id="separator1" />
+                        <splitButton id="splitButtonMark" imageMso="PostReplyToFolder">
+                            <button id="splitButtonMark__btn" supertip="是否在此Sheet页页眉插入图片标记。" label="可视标记" />
+                            <menu id="splitButtonMark__mnu" supertip="是否在此Sheet页页眉插入图片标记。">
+                                <toggleButton id="toggleButtonMarkYes" onAction="toggleButtonMarkYes_Click" supertip="插入页眉标记图片。" label="YES 页眉标记" />
+                                <toggleButton id="toggleButtonMarkNo" onAction="toggleButtonMarkNo_Click" supertip="不插入页眉标记图片。" label="NO 页眉标记" />
+                            </menu>
+                        </splitButton>
+                    </menu>
+                </group>
+            </tab>
+        </tabs>
+    </ribbon>
+</customUI>

@@ -10,6 +10,8 @@ Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "ExcellAddinSetup", "ExcellA
 		{3771C1C3-C193-4889-B4AC-01452FA844B6} = {3771C1C3-C193-4889-B4AC-01452FA844B6}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointAddInConfidential", "PowerPointAddInConfidential\PowerPointAddInConfidential.csproj", "{D4D29F9E-F356-454B-9884-2D9064C984C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -39,6 +41,16 @@ Global
 		{A3EEE4A1-D48F-441D-A031-2C7550A173B6}.Release|Any CPU.Build.0 = SingleImage
 		{A3EEE4A1-D48F-441D-A031-2C7550A173B6}.SingleImage|Any CPU.ActiveCfg = SingleImage
 		{A3EEE4A1-D48F-441D-A031-2C7550A173B6}.SingleImage|Any CPU.Build.0 = SingleImage
+		{D4D29F9E-F356-454B-9884-2D9064C984C4}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D29F9E-F356-454B-9884-2D9064C984C4}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{D4D29F9E-F356-454B-9884-2D9064C984C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D29F9E-F356-454B-9884-2D9064C984C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4D29F9E-F356-454B-9884-2D9064C984C4}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D29F9E-F356-454B-9884-2D9064C984C4}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{D4D29F9E-F356-454B-9884-2D9064C984C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D29F9E-F356-454B-9884-2D9064C984C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4D29F9E-F356-454B-9884-2D9064C984C4}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D29F9E-F356-454B-9884-2D9064C984C4}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
