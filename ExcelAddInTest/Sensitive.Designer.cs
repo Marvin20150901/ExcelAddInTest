@@ -78,23 +78,22 @@
             this.menuClass.Name = "menuClass";
             this.menuClass.OfficeImageId = "FileMarkAsFinal";
             this.menuClass.ShowImage = true;
-            this.menuClass.SuperTip = "Faw-vw Files Confidential level calibration, including digital markers and image " +
-    "tags; ";
+            this.menuClass.SuperTip = "对此Workbook进行密级标定，密级等级参考公司信息分类分级目录。";
             // 
             // toggleButtonSecret
             // 
             this.toggleButtonSecret.Label = "核心商密";
             this.toggleButtonSecret.Name = "toggleButtonSecret";
             this.toggleButtonSecret.ShowImage = true;
-            this.toggleButtonSecret.SuperTip = "Secret Level";
+            this.toggleButtonSecret.SuperTip = "公司核心商业信息，参考公司分类分级目录。";
             this.toggleButtonSecret.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonSecret_Click);
             // 
             // toggleButtonConfidential
             // 
-            this.toggleButtonConfidential.Label = "普通商迷";
+            this.toggleButtonConfidential.Label = "普通商密";
             this.toggleButtonConfidential.Name = "toggleButtonConfidential";
             this.toggleButtonConfidential.ShowImage = true;
-            this.toggleButtonConfidential.SuperTip = "Confidential Level";
+            this.toggleButtonConfidential.SuperTip = "公司普通商业秘密信息，参考公司信息分类分级目录。";
             this.toggleButtonConfidential.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonConfidential_Click);
             // 
             // toggleButtonInternal
@@ -102,7 +101,7 @@
             this.toggleButtonInternal.Label = "内部文件";
             this.toggleButtonInternal.Name = "toggleButtonInternal";
             this.toggleButtonInternal.ShowImage = true;
-            this.toggleButtonInternal.SuperTip = "Internal Level";
+            this.toggleButtonInternal.SuperTip = "公司内部信息，参考公司信息分类分级目录。";
             this.toggleButtonInternal.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonInternal_Click);
             // 
             // toggleButtonPublic
@@ -110,7 +109,7 @@
             this.toggleButtonPublic.Label = "公开文件";
             this.toggleButtonPublic.Name = "toggleButtonPublic";
             this.toggleButtonPublic.ShowImage = true;
-            this.toggleButtonPublic.SuperTip = "Public Level";
+            this.toggleButtonPublic.SuperTip = "公司可公开披露信息，参考公司信息分类分级目录。";
             this.toggleButtonPublic.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonPublic_Click);
             // 
             // separator1
@@ -124,14 +123,14 @@
             this.splitButtonMark.Label = "可视标记";
             this.splitButtonMark.Name = "splitButtonMark";
             this.splitButtonMark.OfficeImageId = "PostReplyToFolder";
-            this.splitButtonMark.SuperTip = "Whether to insert a tag image in the header?";
+            this.splitButtonMark.SuperTip = "是否在此Sheet页页眉插入图片标记。";
             // 
             // toggleButtonMarkYes
             // 
             this.toggleButtonMarkYes.Label = "YES 页眉标记";
             this.toggleButtonMarkYes.Name = "toggleButtonMarkYes";
             this.toggleButtonMarkYes.ShowImage = true;
-            this.toggleButtonMarkYes.SuperTip = "Insert a tag image in the header";
+            this.toggleButtonMarkYes.SuperTip = "插入页眉标记图片。";
             this.toggleButtonMarkYes.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonMarkYes_Click);
             // 
             // toggleButtonMarkNo
@@ -139,7 +138,7 @@
             this.toggleButtonMarkNo.Label = "NO 页眉标记";
             this.toggleButtonMarkNo.Name = "toggleButtonMarkNo";
             this.toggleButtonMarkNo.ShowImage = true;
-            this.toggleButtonMarkNo.SuperTip = "Not insert a tag image in the header";
+            this.toggleButtonMarkNo.SuperTip = "不插入页眉标记图片。";
             this.toggleButtonMarkNo.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonMarkNo_Click);
             // 
             // Sensitive

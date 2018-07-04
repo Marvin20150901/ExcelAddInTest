@@ -33,23 +33,28 @@ namespace ExcelAddInTest
         private void toggleButtonSecret_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Secret");
-            var activeSheet = (Excel.Worksheet)Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet;
+//            var activeSheet = (Excel.Worksheet)Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet;
 
-            if (Properties.Settings.Default.IsMask)
+            foreach (Excel.Worksheet activeSheet in Globals.ThisAddIn.Application.ActiveWorkbook.Sheets)
             {
-                
-                activeSheet.PageSetup.LeftHeaderPicture.Filename = "Secret.png";
-                activeSheet.PageSetup.LeftHeader = "&G";
-            }
-            else
-            {
-                var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
-                if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                if (Properties.Settings.Default.IsMask)
                 {
-                    activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
+
+                    activeSheet.PageSetup.LeftHeaderPicture.Filename = "Secret.png";
                     activeSheet.PageSetup.LeftHeader = "&G";
                 }
+                else
+                {
+                    var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
+                    if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                    {
+                        activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
+                        activeSheet.PageSetup.LeftHeader = "&G";
+                    }
+                }
+
             }
+         
             
         }
 
@@ -102,21 +107,26 @@ namespace ExcelAddInTest
         private void toggleButtonConfidential_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Confidential");
-            var activeSheet = (Excel.Worksheet)Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet;
-            if (Properties.Settings.Default.IsMask)
-            {                
-                activeSheet.PageSetup.LeftHeaderPicture.Filename = "Confidential.png";
-                activeSheet.PageSetup.LeftHeader = "&G";
-            }
-            else
+//            var activeSheet = (Excel.Worksheet)Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet;
+            
+            foreach (Excel.Worksheet activeSheet in Globals.ThisAddIn.Application.ActiveWorkbook.Sheets)
             {
-                var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
-                if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                if (Properties.Settings.Default.IsMask)
                 {
-                    activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
+                    activeSheet.PageSetup.LeftHeaderPicture.Filename = "Confidential.png";
                     activeSheet.PageSetup.LeftHeader = "&G";
                 }
+                else
+                {
+                    var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
+                    if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                    {
+                        activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
+                        activeSheet.PageSetup.LeftHeader = "&G";
+                    }
+                }
             }
+            
 
         }
 
@@ -130,22 +140,27 @@ namespace ExcelAddInTest
         {
             SetWorkbookSensitive("Internal");
 
-            var activeSheet = (Excel.Worksheet)Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet;
-            if (Properties.Settings.Default.IsMask)
+            //var activeSheet = (Excel.Worksheet)Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet;
+
+            foreach (Excel.Worksheet activeSheet in Globals.ThisAddIn.Application.ActiveWorkbook.Sheets)
             {
-               
-                activeSheet.PageSetup.LeftHeaderPicture.Filename = "Internal.png";
-                activeSheet.PageSetup.LeftHeader = "&G";
-            }
-            else
-            {
-                var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
-                if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                if (Properties.Settings.Default.IsMask)
                 {
-                    activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
+
+                    activeSheet.PageSetup.LeftHeaderPicture.Filename = "Internal.png";
                     activeSheet.PageSetup.LeftHeader = "&G";
                 }
+                else
+                {
+                    var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
+                    if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                    {
+                        activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
+                        activeSheet.PageSetup.LeftHeader = "&G";
+                    }
+                }
             }
+
 
 
         }
@@ -159,23 +174,29 @@ namespace ExcelAddInTest
         {
             SetWorkbookSensitive("Public");
 
-            var activeSheet = (Excel.Worksheet)Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet;
-            if (Properties.Settings.Default.IsMask)
+            //var activeSheet = (Excel.Worksheet)Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet;
+
+
+            foreach (Excel.Worksheet activeSheet in Globals.ThisAddIn.Application.ActiveWorkbook.Sheets)
             {
-                
-                activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
-                activeSheet.PageSetup.LeftHeader = "&G";
-            }
-            else
-            {
-                var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
-                if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                if (Properties.Settings.Default.IsMask)
                 {
+
                     activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
                     activeSheet.PageSetup.LeftHeader = "&G";
                 }
-            }
+                else
+                {
+                    var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
+                    if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                    {
+                        activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
+                        activeSheet.PageSetup.LeftHeader = "&G";
+                    }
+                }
 
+            }
+            
             //activeSheet.PageSetup.LeftHeader = "&G";
         }
 
@@ -207,6 +228,21 @@ namespace ExcelAddInTest
             {
                 Properties.Settings.Default.IsMask = false;
                 Properties.Settings.Default.Save();
+
+                foreach (Excel.Worksheet activeSheet in Globals.ThisAddIn.Application.ActiveWorkbook.Sheets)
+                {
+
+                    var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
+                    if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") ||
+                        picname.Equals("Internal.png"))
+                    {
+                        activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
+                        activeSheet.PageSetup.LeftHeader = "&G";
+                    }
+
+
+                }
+
             }
             catch (Exception)
             {

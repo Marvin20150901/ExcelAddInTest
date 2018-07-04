@@ -2596,7 +2596,7 @@
 		<col def="I2">ISSetupLocation</col>
 		<col def="S255">ISReleaseFlags</col>
 		<row><td>_695B050E_B8BE_435A_85F5_E4C42A0EF2C2_</td><td>Microsoft .NET Framework 4.5.2 Full.prq</td><td/><td/><td/></row>
-		<row><td>_B47C4B5B_7705_4F24_9D26_D1701E82F861_</td><td>Visual Studio 2010 Tools for Office Runtime.prq</td><td/><td/><td/></row>
+		<row><td>_84B61060_6FF4_4E30_B074_56B68FA8ECF0_</td><td>Visual Studio 2010 Tools for Office Runtime.prq</td><td/><td/><td/></row>
 	</table>
 
 	<table name="ISSetupType">
@@ -4355,9 +4355,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKAPPPOOLS</td><td>##IDS_PROGMSG_IIS_ROLLBACKAPPPOOLS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
-		<row><td>ProductCode</td><td>{E39C531E-810D-4BEA-BA9C-726E88734169}</td><td/></row>
+		<row><td>ProductCode</td><td>{FB466D5F-6238-49B5-8C14-06F9B39B9E2D}</td><td/></row>
 		<row><td>ProductName</td><td>ExcellAddinSetup</td><td/></row>
-		<row><td>ProductVersion</td><td>1.02.0000</td><td/></row>
+		<row><td>ProductVersion</td><td>1.03.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4369,7 +4369,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>RestartManagerOption</td><td>CloseRestart</td><td/></row>
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;ISACTIONPROP1</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;ISACTIONPROP1;ISACTIONPROP3;ISACTIONPROP2</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
 		<row><td>UpgradeCode</td><td>{DC2D3460-8F9F-4006-9395-17CBFB86FE5E}</td><td/></row>
@@ -4648,6 +4648,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S72">ISDisplayName</col>
 		<row><td>{00000000-0000-0000-0000-000000000000}</td><td>***ALL_VERSIONS***</td><td></td><td></td><td>2</td><td/><td>ISFOUNDNEWERPRODUCTVERSION</td><td>ISPreventDowngrade</td></row>
 		<row><td>{DC2D3460-8F9F-4006-9395-17CBFB86FE5E}</td><td>1.00.0000</td><td>1.01.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP1</td><td>NewUpgradeEntry1</td></row>
+		<row><td>{DC2D3460-8F9F-4006-9395-17CBFB86FE5E}</td><td>1.02.0000</td><td>1.02.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP3</td><td>NewUpgradeEntry2</td></row>
+		<row><td>{DC2D3460-8F9F-4006-9395-17CBFB86FE5E}</td><td>1.03.0000</td><td>1.03.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP2</td><td>NewUpgradeEntry3</td></row>
 	</table>
 
 	<table name="Verb">
