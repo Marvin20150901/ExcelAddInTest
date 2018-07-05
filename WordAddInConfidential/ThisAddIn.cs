@@ -49,10 +49,18 @@ namespace WordAddInConfidential
                 object wd = (object) width;
                 object hg = (object) height;
 
-                
+
                 //Word.InlineShape varShape= headerRange.InlineShapes.AddPicture("Secret.png");
 
-                section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Shapes.AddPicture("Secret.png",ref lt,ref sw,ref lf,ref tp,ref wd,ref hg);
+                //Word.Shape varShape=section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Shapes.AddPicture("Secret.png",ref lt,ref sw,ref lf,ref tp,ref wd,ref hg);
+                Word.Shape varShape = section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Shapes
+                    .AddPicture("Secret.png");
+                
+                varShape.RelativeHorizontalPosition =
+                    Word.WdRelativeHorizontalPosition.wdRelativeHorizontalPositionPage;
+                varShape.RelativeVerticalPosition = Word.WdRelativeVerticalPosition.wdRelativeVerticalPositionPage;
+                varShape.TopRelative = 0;
+                varShape.LeftRelative = 0;
 
             }
 
