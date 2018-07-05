@@ -42,6 +42,7 @@
             this.toggleButtonInternal = this.Factory.CreateRibbonToggleButton();
             this.toggleButtonPublic = this.Factory.CreateRibbonToggleButton();
             this.separator1 = this.Factory.CreateRibbonSeparator();
+            this.buttonClearTags = this.Factory.CreateRibbonButton();
             this.splitButtonMark = this.Factory.CreateRibbonSplitButton();
             this.toggleButtonMarkYes = this.Factory.CreateRibbonToggleButton();
             this.toggleButtonMarkNo = this.Factory.CreateRibbonToggleButton();
@@ -71,6 +72,7 @@
             this.menu1.Items.Add(this.toggleButtonInternal);
             this.menu1.Items.Add(this.toggleButtonPublic);
             this.menu1.Items.Add(this.separator1);
+            this.menu1.Items.Add(this.buttonClearTags);
             this.menu1.Items.Add(this.splitButtonMark);
             this.menu1.Label = "分类";
             this.menu1.Name = "menu1";
@@ -114,6 +116,15 @@
             // 
             this.separator1.Name = "separator1";
             // 
+            // buttonClearTags
+            // 
+            this.buttonClearTags.Label = "清除标记";
+            this.buttonClearTags.Name = "buttonClearTags";
+            this.buttonClearTags.OfficeImageId = "MasterDocumentUnlinkSubdocument";
+            this.buttonClearTags.ShowImage = true;
+            this.buttonClearTags.SuperTip = "清除页眉标记图片";
+            this.buttonClearTags.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonClearTags_Click);
+            // 
             // splitButtonMark
             // 
             this.splitButtonMark.Items.Add(this.toggleButtonMarkYes);
@@ -125,18 +136,18 @@
             // 
             // toggleButtonMarkYes
             // 
-            this.toggleButtonMarkYes.Label = "YES 页眉标记";
+            this.toggleButtonMarkYes.Label = "YES 母版标记";
             this.toggleButtonMarkYes.Name = "toggleButtonMarkYes";
             this.toggleButtonMarkYes.ShowImage = true;
-            this.toggleButtonMarkYes.SuperTip = "插入页眉标记图片。";
+            this.toggleButtonMarkYes.SuperTip = "插入母版页标记图片。";
             this.toggleButtonMarkYes.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonMarkYes_Click);
             // 
             // toggleButtonMarkNo
             // 
-            this.toggleButtonMarkNo.Label = "NO 页眉标记";
+            this.toggleButtonMarkNo.Label = "NO 母版标记";
             this.toggleButtonMarkNo.Name = "toggleButtonMarkNo";
             this.toggleButtonMarkNo.ShowImage = true;
-            this.toggleButtonMarkNo.SuperTip = "不插入页眉标记图片。";
+            this.toggleButtonMarkNo.SuperTip = "不插入母版页标记图片。";
             this.toggleButtonMarkNo.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonMarkNo_Click);
             // 
             // Sensitive
@@ -166,6 +177,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonSplitButton splitButtonMark;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButtonMarkYes;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButtonMarkNo;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonClearTags;
     }
 
     partial class ThisRibbonCollection

@@ -18,6 +18,11 @@ namespace PowerPointAddInConfidential
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonSecret_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Secret");
@@ -63,6 +68,11 @@ namespace PowerPointAddInConfidential
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonConfidential_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Confidential");
@@ -105,40 +115,80 @@ namespace PowerPointAddInConfidential
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonInternal_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Internal");
-
+            var size = Properties.Resources.Internal.Size;
             var activePpt = Globals.ThisAddIn.Application.ActivePresentation;
 
             if (Properties.Settings.Default.IsMask)
             {
+                foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
+                {
+                    if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                    {
+                        slideMasterShape.Delete();
+                    }
+                }
 
+                if (!File.Exists("Internal.png"))
+                {
+                    Properties.Resources.Internal.Save("Internal.png");
+                }
+
+                string logo = @"Internal.png";
+                var shap = activePpt.SlideMaster.Shapes.AddPicture(logo, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0, size.Width, size.Height);
+                shap.Line.Visible = MsoTriState.msoFalse;
+                shap.Name = @"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}";
                 //add  logic
             }
             else
             {
-
+                foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
+                {
+                    if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                    {
+                        // MessageBox.Show("heheheeh");
+                        slideMasterShape.Delete();
+                    }
+                    //slideMasterShape.
+                }
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonPublic_Click(object sender, RibbonControlEventArgs e)
         {
             SetWorkbookSensitive("Public");
 
             var activePpt = Globals.ThisAddIn.Application.ActivePresentation;
 
-            if (Properties.Settings.Default.IsMask)
+            foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
             {
-
-                //add  logic
-            }
-            else
-            {
-
+                if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                {
+                    // MessageBox.Show("heheheeh");
+                    slideMasterShape.Delete();
+                }
+                //slideMasterShape.
             }
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonMarkYes_Click(object sender, RibbonControlEventArgs e)
         {
             Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = true;
@@ -148,6 +198,13 @@ namespace PowerPointAddInConfidential
             Properties.Settings.Default.Save();
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleButtonMarkNo_Click(object sender, RibbonControlEventArgs e)
         {
             Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = false;
@@ -156,6 +213,19 @@ namespace PowerPointAddInConfidential
 
             Properties.Settings.Default.IsMask = false;
             Properties.Settings.Default.Save();
+
+            var activePpt = Globals.ThisAddIn.Application.ActivePresentation;
+
+            foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
+            {
+                if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                {
+                    // MessageBox.Show("heheheeh");
+                    slideMasterShape.Delete();
+                }
+                //slideMasterShape.
+            }
+
         }
 
 
@@ -203,5 +273,25 @@ namespace PowerPointAddInConfidential
             }
         }
 
+
+        /// <summary>
+        /// clear the slide master picture
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonClearTags_Click(object sender, RibbonControlEventArgs e)
+        {
+            var activePpt = Globals.ThisAddIn.Application.ActivePresentation;
+
+            foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
+            {
+                if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                {
+                    // MessageBox.Show("heheheeh");
+                    slideMasterShape.Delete();
+                }
+                //slideMasterShape.
+            }
+        }
     }
 }

@@ -38,6 +38,10 @@ namespace ExcelAddInTest
             {
                 if (Properties.Settings.Default.IsMask)
                 {
+                    if (!File.Exists("Secret.png"))
+                    {
+                        Properties.Resources.Secret.Save("Secret.png");
+                    }
 
                     activeSheet.PageSetup.LeftHeaderPicture.Filename = "Secret.png";
                     activeSheet.PageSetup.LeftHeader = "&G";
@@ -112,6 +116,11 @@ namespace ExcelAddInTest
             {
                 if (Properties.Settings.Default.IsMask)
                 {
+                    if (!File.Exists("Confidential.png"))
+                    {
+                        Properties.Resources.Confidential.Save("Confidential.png");
+                    }
+
                     activeSheet.PageSetup.LeftHeaderPicture.Filename = "Confidential.png";
                     activeSheet.PageSetup.LeftHeader = "&G";
                 }
@@ -145,6 +154,10 @@ namespace ExcelAddInTest
             {
                 if (Properties.Settings.Default.IsMask)
                 {
+                    if (!File.Exists("Internal.png"))
+                    {
+                        Properties.Resources.Confidential.Save("Internal.png");
+                    }
 
                     activeSheet.PageSetup.LeftHeaderPicture.Filename = "Internal.png";
                     activeSheet.PageSetup.LeftHeader = "&G";
@@ -159,9 +172,7 @@ namespace ExcelAddInTest
                     }
                 }
             }
-
-
-
+            
         }
 
         /// <summary>
@@ -248,6 +259,18 @@ namespace ExcelAddInTest
 
                 throw;
             }
+        }
+
+        private void buttonClearTags_Click(object sender, RibbonControlEventArgs e)
+        {
+            foreach (Excel.Worksheet activeSheet in Globals.ThisAddIn.Application.ActiveWorkbook.Sheets)
+            {
+                activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
+                activeSheet.PageSetup.LeftHeader = "&G";
+
+            }
+
+
         }
     }
 }

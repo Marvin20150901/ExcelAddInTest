@@ -37,25 +37,8 @@ namespace PowerPointAddInConfidential
                     Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = false;
                     Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = true;
                 }
-
-
-                //release the png from the resources
-                if (!File.Exists("Secret.png"))
-                {
-                    Properties.Resources.Secret.Save("Secret.png");
-                }
-
-                if (!File.Exists("Confidential.png"))
-                {
-                    Properties.Resources.Confidential.Save("Confidential.png");
-                }
-
-                if (!File.Exists("Internal.png"))
-                {
-                    Properties.Resources.Internal.Save("Internal.png");
-                }
-
-
+                
+                
             }
             catch (Exception)
             {

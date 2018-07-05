@@ -35,5 +35,9 @@
 			<Name>ExcelAddInTest</Name>
 			<Project>{3771C1C3-C193-4889-B4AC-01452FA844B6}</Project>
 		</ProjectReference>
+		<ProjectReference Include="..\PowerPointAddInConfidential\PowerPointAddInConfidential.csproj">
+			<Name>PowerPointAddInConfidential</Name>
+			<Project>{D4D29F9E-F356-454B-9884-2D9064C984C4}</Project>
+		</ProjectReference>
 	</ItemGroup>
 </Project>

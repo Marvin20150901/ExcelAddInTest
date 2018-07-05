@@ -42,6 +42,7 @@
             this.toggleButtonInternal = this.Factory.CreateRibbonToggleButton();
             this.toggleButtonPublic = this.Factory.CreateRibbonToggleButton();
             this.separator1 = this.Factory.CreateRibbonSeparator();
+            this.buttonClearTags = this.Factory.CreateRibbonButton();
             this.splitButtonMark = this.Factory.CreateRibbonSplitButton();
             this.toggleButtonMarkYes = this.Factory.CreateRibbonToggleButton();
             this.toggleButtonMarkNo = this.Factory.CreateRibbonToggleButton();
@@ -73,6 +74,7 @@
             this.menuClass.Items.Add(this.toggleButtonInternal);
             this.menuClass.Items.Add(this.toggleButtonPublic);
             this.menuClass.Items.Add(this.separator1);
+            this.menuClass.Items.Add(this.buttonClearTags);
             this.menuClass.Items.Add(this.splitButtonMark);
             this.menuClass.Label = "分类";
             this.menuClass.Name = "menuClass";
@@ -116,6 +118,15 @@
             // 
             this.separator1.Name = "separator1";
             // 
+            // buttonClearTags
+            // 
+            this.buttonClearTags.Label = "清除标记";
+            this.buttonClearTags.Name = "buttonClearTags";
+            this.buttonClearTags.OfficeImageId = "MasterDocumentUnlinkSubdocument";
+            this.buttonClearTags.ShowImage = true;
+            this.buttonClearTags.SuperTip = "清除页眉标记图片";
+            this.buttonClearTags.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonClearTags_Click);
+            // 
             // splitButtonMark
             // 
             this.splitButtonMark.Items.Add(this.toggleButtonMarkYes);
@@ -123,7 +134,7 @@
             this.splitButtonMark.Label = "可视标记";
             this.splitButtonMark.Name = "splitButtonMark";
             this.splitButtonMark.OfficeImageId = "PostReplyToFolder";
-            this.splitButtonMark.SuperTip = "是否在此Sheet页页眉插入图片标记。";
+            this.splitButtonMark.SuperTip = "是否在Sheet页页眉插入图片标记。";
             // 
             // toggleButtonMarkYes
             // 
@@ -168,6 +179,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonSplitButton splitButtonMark;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButtonMarkYes;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButtonMarkNo;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonClearTags;
     }
 
     partial class ThisRibbonCollection

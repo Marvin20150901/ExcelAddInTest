@@ -344,6 +344,7 @@
 		<row><td>ExcelAddInTest.Primary_output2</td><td>{DB48E282-ACE5-4654-A580-99296AE72789}</td><td>INSTALLDIR</td><td>2</td><td/><td>exceladdintest.primary_outpu</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{2FE6EDD6-5EDF-4F7E-940B-A32C267403A4}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{5FD9A1DC-EEAD-4F42-9BBA-789BE1FB121D}</td><td>INSTALLDIR</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>PowerPointAddInConfidential.Primary_output</td><td>{CE069C98-FD00-4C09-8D8E-A6EDACA40F3F}</td><td>INSTALLDIR</td><td>2</td><td/><td>powerpointaddinconfidential.</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1057,6 +1058,7 @@
 		<row><td>INSTALLDIR</td><td>ExcelAddInTest.Primary_output2</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>INSTALLDIR</td><td>PowerPointAddInConfidential.Primary_output</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1875,6 +1877,7 @@
 		<row><td>AlwaysInstall</td><td>ExcelAddInTest.Primary_output2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>AlwaysInstall</td><td>PowerPointAddInConfidential.Primary_output</td></row>
 	</table>
 
 	<table name="File">
@@ -1892,6 +1895,9 @@
 		<row><td>exceladdintest.dll.manifest</td><td>ISX_DEFAULTCOMPONENT</td><td>EXCELA~1.MAN|ExcelAddInTest.dll.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>D:\code\VideoConferenceSelfService\ExcelAddInTest\ExcelAddInTest\bin\Release\ExcelAddInTest.dll.manifest</td><td>1</td><td/></row>
 		<row><td>exceladdintest.primary_outpu</td><td>ExcelAddInTest.Primary_output2</td><td>ExcelAddInTest.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ExcelAddInTest&gt;|Built</td><td>3</td><td/></row>
 		<row><td>exceladdintest.vsto</td><td>ISX_DEFAULTCOMPONENT</td><td>EXCELA~1.VST|ExcelAddInTest.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>D:\code\VideoConferenceSelfService\ExcelAddInTest\ExcelAddInTest\bin\Release\ExcelAddInTest.vsto</td><td>1</td><td/></row>
+		<row><td>powerpointaddinconfidential.</td><td>PowerPointAddInConfidential.Primary_output</td><td>PowerPointAddInConfidential.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;PowerPointAddInConfidential&gt;|Built</td><td>3</td><td/></row>
+		<row><td>powerpointaddinconfidential.1</td><td>ISX_DEFAULTCOMPONENT</td><td>POWERP~1.MAN|PowerPointAddInConfidential.dll.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>D:\code\VideoConferenceSelfService\ExcelAddInTest\PowerPointAddInConfidential\bin\Release\PowerPointAddInConfidential.dll.manifest</td><td>1</td><td/></row>
+		<row><td>powerpointaddinconfidential.2</td><td>ISX_DEFAULTCOMPONENT</td><td>POWERP~1.VST|PowerPointAddInConfidential.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>D:\code\VideoConferenceSelfService\ExcelAddInTest\PowerPointAddInConfidential\bin\Release\PowerPointAddInConfidential.vsto</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2040,6 +2046,7 @@
 		<row><td>ExcelAddInTest.Primary_output2</td><td/><td/><td>_F5CA9988_375F_4C03_9681_786ED72A9E15_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_00016588_06F0_4A57_88A6_24B09C5BA80D_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_4ACD9AB2_5D9C_4B9B_B617_840ACAEF351C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>PowerPointAddInConfidential.Primary_output</td><td/><td/><td>_6BE724B2_0E27_4482_8E70_C84A0E467C37_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2323,6 +2330,7 @@
 		<row><td>ISProductFolder</td><td/><td/><td>1</td></row>
 		<row><td>ISProjectDataFolder</td><td/><td/><td>1</td></row>
 		<row><td>ISProjectFolder</td><td/><td/><td>1</td></row>
+		<row><td>PowerPointAddInConfidential</td><td>PowerPointAddInConfidential\PowerPointAddInConfidential.csproj</td><td/><td>2</td></row>
 		<row><td>ProgramFilesFolder</td><td/><td/><td>1</td></row>
 		<row><td>SystemFolder</td><td/><td/><td>1</td></row>
 		<row><td>WindowsFolder</td><td/><td/><td>1</td></row>
@@ -4355,9 +4363,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKAPPPOOLS</td><td>##IDS_PROGMSG_IIS_ROLLBACKAPPPOOLS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
-		<row><td>ProductCode</td><td>{FB466D5F-6238-49B5-8C14-06F9B39B9E2D}</td><td/></row>
+		<row><td>ProductCode</td><td>{B25CA443-505F-4C6E-A868-19476A8C3E1F}</td><td/></row>
 		<row><td>ProductName</td><td>ExcellAddinSetup</td><td/></row>
-		<row><td>ProductVersion</td><td>1.03.0000</td><td/></row>
+		<row><td>ProductVersion</td><td>1.22.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4369,7 +4377,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>RestartManagerOption</td><td>CloseRestart</td><td/></row>
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;ISACTIONPROP1;ISACTIONPROP3;ISACTIONPROP2</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;ISACTIONPROP1;ISACTIONPROP3;ISACTIONPROP2;ISACTIONPROP5</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
 		<row><td>UpgradeCode</td><td>{DC2D3460-8F9F-4006-9395-17CBFB86FE5E}</td><td/></row>
@@ -4425,6 +4433,13 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>Registry1</td><td>2</td><td>SOFTWARE\Microsoft\Office\Excel\Addins\Fawvw.ExcelAddInTest</td><td>Description</td><td>Excel Confidential Addin</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
+		<row><td>Registry10</td><td>2</td><td>SOFTWARE\Microsoft\Office\PowerPoint\Addins\Fawvw.PowerPointAddInConfidential</td><td>FriendlyName</td><td>PowerPoint Addin Confidential</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
+		<row><td>Registry11</td><td>2</td><td>SOFTWARE\Microsoft\Office\PowerPoint\Addins\Fawvw.PowerPointAddInConfidential</td><td>LoadBehavior</td><td>#3</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
+		<row><td>Registry12</td><td>2</td><td>SOFTWARE\Microsoft\Office\PowerPoint\Addins\Fawvw.PowerPointAddInConfidential</td><td>Manifest</td><td>file:///[INSTALLDIR]PowerPointAddInConfidential.vsto|vstolocal</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
+		<row><td>Registry13</td><td>2</td><td>SOFTWARE\Microsoft\Office\PowerPoint\Addins\Fawvw.PowerPointAddInConfidential</td><td>Description</td><td>Excel Confidential Addin</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry14</td><td>2</td><td>SOFTWARE\Microsoft\Office\PowerPoint\Addins\Fawvw.PowerPointAddInConfidential</td><td>FriendlyName</td><td>Excel Confidential Addin</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry15</td><td>2</td><td>SOFTWARE\Microsoft\Office\PowerPoint\Addins\Fawvw.PowerPointAddInConfidential</td><td>LoadBehavior</td><td>#3</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry16</td><td>2</td><td>SOFTWARE\Microsoft\Office\PowerPoint\Addins\Fawvw.PowerPointAddInConfidential</td><td>Manifest</td><td> file:///[INSTALLDIR]ExcelAddInTest.vsto|vstolocal</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
 		<row><td>Registry2</td><td>2</td><td>SOFTWARE\Microsoft\Office\Excel\Addins\Fawvw.ExcelAddInTest</td><td>Description</td><td>Excel Confidential Addin</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
 		<row><td>Registry3</td><td>2</td><td>SOFTWARE\Microsoft\Office\Excel\Addins\Fawvw.ExcelAddInTest</td><td>FriendlyName</td><td>Excel Confidential Addin</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
 		<row><td>Registry4</td><td>2</td><td>SOFTWARE\Microsoft\Office\Excel\Addins\Fawvw.ExcelAddInTest</td><td>LoadBehavior</td><td>#3</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
@@ -4432,6 +4447,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>Registry6</td><td>2</td><td>SOFTWARE\Microsoft\Office\Excel\Addins\Fawvw.ExcelAddInTest</td><td>FriendlyName</td><td>Excel Confidential Addin</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
 		<row><td>Registry7</td><td>2</td><td>SOFTWARE\Microsoft\Office\Excel\Addins\Fawvw.ExcelAddInTest</td><td>Manifest</td><td> file:///[INSTALLDIR]ExcelAddInTest.vsto|vstolocal</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
 		<row><td>Registry8</td><td>2</td><td>SOFTWARE\Microsoft\Office\Excel\Addins\Fawvw.ExcelAddInTest</td><td>LoadBehavior</td><td>#3</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry9</td><td>2</td><td>SOFTWARE\Microsoft\Office\PowerPoint\Addins\Fawvw.PowerPointAddInConfidential</td><td>Description</td><td>PowerPoint Addin Confidential</td><td>ISX_DEFAULTCOMPONENT</td><td>0</td></row>
 	</table>
 
 	<table name="RemoveFile">
@@ -4650,6 +4666,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>{DC2D3460-8F9F-4006-9395-17CBFB86FE5E}</td><td>1.00.0000</td><td>1.01.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP1</td><td>NewUpgradeEntry1</td></row>
 		<row><td>{DC2D3460-8F9F-4006-9395-17CBFB86FE5E}</td><td>1.02.0000</td><td>1.02.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP3</td><td>NewUpgradeEntry2</td></row>
 		<row><td>{DC2D3460-8F9F-4006-9395-17CBFB86FE5E}</td><td>1.03.0000</td><td>1.03.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP2</td><td>NewUpgradeEntry3</td></row>
+		<row><td>{DC2D3460-8F9F-4006-9395-17CBFB86FE5E}</td><td>1.21.0000</td><td>1.21.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP5</td><td>NewUpgradeEntry5</td></row>
 	</table>
 
 	<table name="Verb">

@@ -49,6 +49,7 @@ namespace ExcelAddInTest
                 }
 
 
+                /*
                 //release the png from the resources
                 if (!File.Exists("Secret.png"))
                 {
@@ -64,7 +65,7 @@ namespace ExcelAddInTest
                 {
                     Properties.Resources.Internal.Save("Internal.png");
                 }
-                
+                */
 
             }
             catch (Exception)

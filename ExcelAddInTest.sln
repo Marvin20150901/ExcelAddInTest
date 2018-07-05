@@ -7,10 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelAddInTest", "ExcelAddI
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "ExcellAddinSetup", "ExcellAddinSetup\ExcellAddinSetup.isproj", "{A3EEE4A1-D48F-441D-A031-2C7550A173B6}"
 	ProjectSection(ProjectDependencies) = postProject
+		{D4D29F9E-F356-454B-9884-2D9064C984C4} = {D4D29F9E-F356-454B-9884-2D9064C984C4}
 		{3771C1C3-C193-4889-B4AC-01452FA844B6} = {3771C1C3-C193-4889-B4AC-01452FA844B6}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointAddInConfidential", "PowerPointAddInConfidential\PowerPointAddInConfidential.csproj", "{D4D29F9E-F356-454B-9884-2D9064C984C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordAddInConfidential", "WordAddInConfidential\WordAddInConfidential.csproj", "{BF4A5E01-8E76-487D-9D08-31DE7C87D952}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +54,16 @@ Global
 		{D4D29F9E-F356-454B-9884-2D9064C984C4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D4D29F9E-F356-454B-9884-2D9064C984C4}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{D4D29F9E-F356-454B-9884-2D9064C984C4}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{BF4A5E01-8E76-487D-9D08-31DE7C87D952}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4A5E01-8E76-487D-9D08-31DE7C87D952}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{BF4A5E01-8E76-487D-9D08-31DE7C87D952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF4A5E01-8E76-487D-9D08-31DE7C87D952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF4A5E01-8E76-487D-9D08-31DE7C87D952}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF4A5E01-8E76-487D-9D08-31DE7C87D952}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{BF4A5E01-8E76-487D-9D08-31DE7C87D952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4A5E01-8E76-487D-9D08-31DE7C87D952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF4A5E01-8E76-487D-9D08-31DE7C87D952}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4A5E01-8E76-487D-9D08-31DE7C87D952}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
