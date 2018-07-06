@@ -17,7 +17,12 @@ namespace WordAddInConfidential
         private  string appPath;
         private void Sensitive_Load(object sender, RibbonUIEventArgs e)
         {
-            appPath = Globals.ThisAddIn.Application.Path + @"\";
+            appPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\OfficeAddinConfidential\";
+
+            if (!Directory.Exists(appPath))
+            {
+                Directory.CreateDirectory(appPath);
+            }
 
             if (!File.Exists(appPath+@"Secret.pang"))
             {
