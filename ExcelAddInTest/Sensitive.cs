@@ -26,7 +26,7 @@ namespace ExcelAddInTest
                 Directory.CreateDirectory(appPath);
             }
 
-            if (!File.Exists(appPath + @"Secret.pang"))
+            if (!File.Exists(appPath + @"Secret.png"))
             {
                 Properties.Resources.Secret.Save(appPath + "Secret.png");
                 Properties.Resources.Internal.Save(appPath + "Internal.png");

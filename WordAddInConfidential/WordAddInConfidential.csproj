@@ -194,6 +194,7 @@
       <DependentUpon>ThisAddIn.Designer.xml</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
+    <None Include="WordAddInConfidential_2_TemporaryKey.pfx" />
     <None Include="WordAddInConfidential_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -213,10 +214,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>WordAddInConfidential_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>WordAddInConfidential_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>0FA64EDC706CBBAD5593F579832EAD98C7521971</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>37A6ACF6C5904A7D8A7E3CB0930BF5FC898F8ECE</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

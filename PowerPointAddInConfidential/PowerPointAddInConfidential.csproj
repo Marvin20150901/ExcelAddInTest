@@ -169,6 +169,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="PowerPointAddInConfidential_3_TemporaryKey.pfx" />
     <None Include="PowerPointAddInConfidential_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -213,10 +214,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>PowerPointAddInConfidential_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>PowerPointAddInConfidential_3_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>5517BA39A99F41A62EACD96953EACA82076C74F7</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>49833B961E5C7A54B65EF0754E33488448D4A662</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
