@@ -13,9 +13,22 @@ namespace PowerPointAddInConfidential
 {
     public partial class Sensitive
     {
+        private string appPath;
         private void Sensitive_Load(object sender, RibbonUIEventArgs e)
         {
+            appPath = Globals.ThisAddIn.Application.Path + @"\";
 
+            if (!File.Exists(appPath + @"Secret.pang"))
+            {
+                Properties.Resources.Secret.Save(appPath + @"Secret.pang");
+                Properties.Resources.Internal.Save(appPath + "Internal.png");
+                Properties.Resources.Confidential.Save(appPath + "Confidential.png");
+
+                Properties.Settings.Default.IsImageUpdata = false;
+                Properties.Settings.Default.Save();
+
+            }
+            
         }
 
         /// <summary>
@@ -29,26 +42,29 @@ namespace PowerPointAddInConfidential
             //            var activeSheet = (Excel.Worksheet)Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet;
 
             var activePpt = Globals.ThisAddIn.Application.ActivePresentation;
-            var size = Properties.Resources.Secret.Size;
+            //var size = Properties.Resources.Secret.Size;
+
+            
             if (Properties.Settings.Default.IsMask)
             {
                 foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
                 {
-                    if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                    if (slideMasterShape.Name.Equals(Properties.Settings.Default.ShapName))
                     {
                         slideMasterShape.Delete();
                     }
                 }
 
-                if (!File.Exists("Secret.png"))
+
+                if (!File.Exists(appPath + "Secret.png"))
                 {
-                    Properties.Resources.Secret.Save("Secret.png");
+                    Properties.Resources.Secret.Save(appPath + "Secret.png");
                 }
 
-                string logo = @"Secret.png";
-                var shap=activePpt.SlideMaster.Shapes.AddPicture(logo, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0, size.Width,size.Height);
+                string logo = appPath + @"Secret.png";
+                var shap=activePpt.SlideMaster.Shapes.AddPicture(logo, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0);
                 shap.Line.Visible=MsoTriState.msoFalse;
-                shap.Name = @"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}";
+                shap.Name = Properties.Settings.Default.ShapName;
             }
             else
             {
@@ -56,7 +72,7 @@ namespace PowerPointAddInConfidential
                  //activePpt.SlideMaster.Shapes
                 foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
                 {
-                    if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                    if (slideMasterShape.Name.Equals(Properties.Settings.Default.ShapName))
                     {
                        // MessageBox.Show("heheheeh");
                         slideMasterShape.Delete();
@@ -83,28 +99,28 @@ namespace PowerPointAddInConfidential
             {
                 foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
                 {
-                    if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                    if (slideMasterShape.Name.Equals(Properties.Settings.Default.ShapName))
                     {
                         slideMasterShape.Delete();
                     }
                 }
-
-                if (!File.Exists("Confidential.png"))
+                
+                if (!File.Exists(appPath + "Confidential.png"))
                 {
-                    Properties.Resources.Confidential.Save("Confidential.png");
+                    Properties.Resources.Confidential.Save(appPath + "Confidential.png");
                 }
 
-                string logo = @"Confidential.png";
-                var shap = activePpt.SlideMaster.Shapes.AddPicture(logo, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0, size.Width, size.Height);
+                string logo = appPath + @"Confidential.png";
+                var shap = activePpt.SlideMaster.Shapes.AddPicture(logo, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0);
                 shap.Line.Visible = MsoTriState.msoFalse;
-                shap.Name = @"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}";
+                shap.Name = Properties.Settings.Default.ShapName;
                 //add  logic
             }
             else
             {
                 foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
                 {
-                    if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                    if (slideMasterShape.Name.Equals(Properties.Settings.Default.ShapName))
                     {
                         // MessageBox.Show("heheheeh");
                         slideMasterShape.Delete();
@@ -130,28 +146,29 @@ namespace PowerPointAddInConfidential
             {
                 foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
                 {
-                    if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                    if (slideMasterShape.Name.Equals(Properties.Settings.Default.ShapName))
                     {
                         slideMasterShape.Delete();
                     }
                 }
 
-                if (!File.Exists("Internal.png"))
+                
+                if (!File.Exists(appPath + "Internal.png"))
                 {
-                    Properties.Resources.Internal.Save("Internal.png");
+                    Properties.Resources.Internal.Save(appPath + "Internal.png");
                 }
 
-                string logo = @"Internal.png";
-                var shap = activePpt.SlideMaster.Shapes.AddPicture(logo, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0, size.Width, size.Height);
+                string logo = appPath + @"Internal.png";
+                var shap = activePpt.SlideMaster.Shapes.AddPicture(logo, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0);
                 shap.Line.Visible = MsoTriState.msoFalse;
-                shap.Name = @"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}";
+                shap.Name = Properties.Settings.Default.ShapName;
                 //add  logic
             }
             else
             {
                 foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
                 {
-                    if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                    if (slideMasterShape.Name.Equals(Properties.Settings.Default.ShapName))
                     {
                         // MessageBox.Show("heheheeh");
                         slideMasterShape.Delete();
@@ -174,7 +191,7 @@ namespace PowerPointAddInConfidential
 
             foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
             {
-                if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                if (slideMasterShape.Name.Equals(Properties.Settings.Default.ShapName))
                 {
                     // MessageBox.Show("heheheeh");
                     slideMasterShape.Delete();
@@ -218,7 +235,7 @@ namespace PowerPointAddInConfidential
 
             foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
             {
-                if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                if (slideMasterShape.Name.Equals(Properties.Settings.Default.ShapName))
                 {
                     // MessageBox.Show("heheheeh");
                     slideMasterShape.Delete();
@@ -285,7 +302,7 @@ namespace PowerPointAddInConfidential
 
             foreach (Shape slideMasterShape in activePpt.SlideMaster.Shapes)
             {
-                if (slideMasterShape.Name.Equals(@"{BE32D37E-C6BF-42CF-A306-46B34A2066FF}"))
+                if (slideMasterShape.Name.Equals(Properties.Settings.Default.ShapName))
                 {
                     // MessageBox.Show("heheheeh");
                     slideMasterShape.Delete();

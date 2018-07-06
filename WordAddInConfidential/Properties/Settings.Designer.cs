@@ -22,5 +22,41 @@ namespace WordAddInConfidential.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsMask {
+            get {
+                return ((bool)(this["IsMask"]));
+            }
+            set {
+                this["IsMask"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsImageUpdata {
+            get {
+                return ((bool)(this["IsImageUpdata"]));
+            }
+            set {
+                this["IsImageUpdata"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("BE32D37E")]
+        public string ShapName {
+            get {
+                return ((string)(this["ShapName"]));
+            }
+            set {
+                this["ShapName"] = value;
+            }
+        }
     }
 }

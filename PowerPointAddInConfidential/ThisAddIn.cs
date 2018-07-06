@@ -37,7 +37,7 @@ namespace PowerPointAddInConfidential
                     Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = false;
                     Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = true;
                 }
-                
+
                 
             }
             catch (Exception)
@@ -76,7 +76,7 @@ namespace PowerPointAddInConfidential
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
                 throw;
             }
         }
@@ -140,7 +140,7 @@ namespace PowerPointAddInConfidential
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
                 throw;
             }
         }

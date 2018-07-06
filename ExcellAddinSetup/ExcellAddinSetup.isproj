@@ -39,5 +39,9 @@
 			<Name>PowerPointAddInConfidential</Name>
 			<Project>{D4D29F9E-F356-454B-9884-2D9064C984C4}</Project>
 		</ProjectReference>
+		<ProjectReference Include="..\WordAddInConfidential\WordAddInConfidential.csproj">
+			<Name>WordAddInConfidential</Name>
+			<Project>{BF4A5E01-8E76-487D-9D08-31DE7C87D952}</Project>
+		</ProjectReference>
 	</ItemGroup>
 </Project>

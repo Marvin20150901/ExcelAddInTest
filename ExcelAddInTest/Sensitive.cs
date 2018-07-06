@@ -16,11 +16,23 @@ namespace ExcelAddInTest
 {
     public partial class Sensitive
     {
-
+        private string appPath;
         private void Sensitive_Load(object sender, RibbonUIEventArgs e)
         {
+            appPath = Globals.ThisAddIn.Application.Path + @"\";
 
+            if (!File.Exists(appPath + @"Secret.pang"))
+            {
+                Properties.Resources.Secret.Save(appPath + "Secret.png");
+                Properties.Resources.Internal.Save(appPath + "Internal.png");
+                Properties.Resources.Confidential.Save(appPath + "Confidential.png");
+
+                Properties.Settings.Default.IsImageUpdata = false;
+                Properties.Settings.Default.Save();
+            }
             
+            //Globals.ThisAddIn.Application.UserLibraryPath
+
         }
 
 
@@ -38,18 +50,18 @@ namespace ExcelAddInTest
             {
                 if (Properties.Settings.Default.IsMask)
                 {
-                    if (!File.Exists("Secret.png"))
+                    if (!File.Exists(appPath + "Secret.png"))
                     {
-                        Properties.Resources.Secret.Save("Secret.png");
+                        Properties.Resources.Secret.Save(appPath + "Secret.png");
                     }
 
-                    activeSheet.PageSetup.LeftHeaderPicture.Filename = "Secret.png";
+                    activeSheet.PageSetup.LeftHeaderPicture.Filename = appPath + "Secret.png";
                     activeSheet.PageSetup.LeftHeader = "&G";
                 }
                 else
                 {
                     var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
-                    if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                    if (picname.Equals(appPath + "Secret.png") || picname.Equals(appPath + "Confidential.png") || picname.Equals(appPath + "Internal.png"))
                     {
                         activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
                         activeSheet.PageSetup.LeftHeader = "&G";
@@ -116,18 +128,18 @@ namespace ExcelAddInTest
             {
                 if (Properties.Settings.Default.IsMask)
                 {
-                    if (!File.Exists("Confidential.png"))
+                    if (!File.Exists(appPath + "Confidential.png"))
                     {
-                        Properties.Resources.Confidential.Save("Confidential.png");
+                        Properties.Resources.Confidential.Save(appPath + "Confidential.png");
                     }
 
-                    activeSheet.PageSetup.LeftHeaderPicture.Filename = "Confidential.png";
+                    activeSheet.PageSetup.LeftHeaderPicture.Filename = appPath + "Confidential.png";
                     activeSheet.PageSetup.LeftHeader = "&G";
                 }
                 else
                 {
                     var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
-                    if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                    if (picname.Equals(appPath + "Secret.png") || picname.Equals(appPath + "Confidential.png") || picname.Equals(appPath + "Internal.png"))
                     {
                         activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
                         activeSheet.PageSetup.LeftHeader = "&G";
@@ -154,18 +166,18 @@ namespace ExcelAddInTest
             {
                 if (Properties.Settings.Default.IsMask)
                 {
-                    if (!File.Exists("Internal.png"))
+                    if (!File.Exists(appPath + "Internal.png"))
                     {
-                        Properties.Resources.Confidential.Save("Internal.png");
+                        Properties.Resources.Confidential.Save(appPath + "Internal.png");
                     }
 
-                    activeSheet.PageSetup.LeftHeaderPicture.Filename = "Internal.png";
+                    activeSheet.PageSetup.LeftHeaderPicture.Filename = appPath + "Internal.png";
                     activeSheet.PageSetup.LeftHeader = "&G";
                 }
                 else
                 {
                     var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
-                    if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                    if (picname.Equals(appPath + "Secret.png") || picname.Equals(appPath + "Confidential.png") || picname.Equals(appPath + "Internal.png"))
                     {
                         activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
                         activeSheet.PageSetup.LeftHeader = "&G";
@@ -198,7 +210,7 @@ namespace ExcelAddInTest
                 else
                 {
                     var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
-                    if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") || picname.Equals("Internal.png"))
+                    if (picname.Equals(appPath + "Secret.png") || picname.Equals(appPath + "Confidential.png") || picname.Equals(appPath + "Internal.png"))
                     {
                         activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
                         activeSheet.PageSetup.LeftHeader = "&G";
@@ -243,8 +255,8 @@ namespace ExcelAddInTest
                 {
 
                     var picname = activeSheet.PageSetup.LeftHeaderPicture.Filename;
-                    if (picname.Equals("Secret.png") || picname.Equals("Confidential.png") ||
-                        picname.Equals("Internal.png"))
+                    if (picname.Equals(appPath + "Secret.png") || picname.Equals(appPath + "Confidential.png") ||
+                        picname.Equals(appPath + "Internal.png"))
                     {
                         activeSheet.PageSetup.LeftHeaderPicture.Filename = "";
                         activeSheet.PageSetup.LeftHeader = "&G";

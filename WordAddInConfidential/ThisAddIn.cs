@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
 using Word = Microsoft.Office.Interop.Word;
@@ -16,13 +17,64 @@ namespace WordAddInConfidential
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             //this.Application.ActiveDocument.Sections
-            this.Application.DocumentOpen += Application_DocumentOpen;
+            //this.Application.DocumentOpen += Application_DocumentOpen;
+
+            //this.Application.DocumentChange;
+            this.Application.WindowActivate += Application_WindowActivate;
+
+            if (Properties.Settings.Default.IsMask)
+            {
+                Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = true;
+                Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = false;
+            }
+            else
+            {
+                Globals.Ribbons.Sensitive.toggleButtonMarkYes.Checked = false;
+                Globals.Ribbons.Sensitive.toggleButtonMarkNo.Checked = true;
+            }
+
+            
+
+        }
+
+
+        private void Application_WindowActivate(Word.Document Doc, Word.Window Wn)
+        {
+            //throw new NotImplementedException();
+            try
+            {
+                Office.DocumentProperties prp = this.Application.ActiveDocument.CustomDocumentProperties;
+
+                bool isSenitive = false;
+
+                foreach (Office.DocumentProperty documentProperty in prp)
+                {
+                    if (documentProperty.Name.Equals("Sensitive"))
+                    {
+                        InitRabbionControl(documentProperty.Value);
+                        isSenitive = true;
+                    }
+                }
+
+                if (isSenitive == false)
+                {
+                    InitRabbionControl(string.Empty);
+                }
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(e.ToString());
+                throw;
+            }
         }
 
         private void Application_DocumentOpen(Word.Document Doc)
         {
             //throw new NotImplementedException();
 
+            
+
+            /*
             foreach (Word.Section section in this.Application.ActiveDocument.Sections)
             {
 
@@ -63,15 +115,77 @@ namespace WordAddInConfidential
                 varShape.LeftRelative = 0;
 
             }
+            */
+            
+        }
 
-            foreach (Word.Section wordSection in this.Application.ActiveDocument.Sections)
+
+
+        /// <summary>
+        /// set rabbion controls state corrding the sensitive properes
+        /// </summary>
+        /// <param name="sensitive"></param>
+        public void InitRabbionControl(string sensitive)
+        {
+            try
             {
-                Word.Range footerRange = wordSection.Footers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
-                footerRange.Font.ColorIndex = Word.WdColorIndex.wdDarkRed;
-                footerRange.Font.Size = 20;
-                footerRange.Text = "Confidential";
+                if (sensitive != string.Empty)
+                {
+                    if (sensitive.Equals("Secret"))
+                    {
+                        Globals.Ribbons.Sensitive.toggleButtonSecret.Checked = true;
+                        Globals.Ribbons.Sensitive.toggleButtonConfidential.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonInternal.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonPublic.Checked = false;
+                    }
+                    else if (sensitive.Equals("Confidential"))
+                    {
+                        Globals.Ribbons.Sensitive.toggleButtonSecret.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonConfidential.Checked = true;
+                        Globals.Ribbons.Sensitive.toggleButtonInternal.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonPublic.Checked = false;
+                    }
+                    else if (sensitive.Equals("Internal"))
+                    {
+                        Globals.Ribbons.Sensitive.toggleButtonSecret.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonConfidential.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonInternal.Checked = true;
+                        Globals.Ribbons.Sensitive.toggleButtonPublic.Checked = false;
+                    }
+                    else if (sensitive.Equals("Public"))
+                    {
+                        Globals.Ribbons.Sensitive.toggleButtonSecret.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonConfidential.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonInternal.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonPublic.Checked = true;
+                    }
+                    else
+                    {
+                        Globals.Ribbons.Sensitive.toggleButtonSecret.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonConfidential.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonInternal.Checked = false;
+                        Globals.Ribbons.Sensitive.toggleButtonPublic.Checked = false;
+                    }
+
+                }
+                else
+                {
+                    Globals.Ribbons.Sensitive.toggleButtonSecret.Checked = false;
+                    Globals.Ribbons.Sensitive.toggleButtonConfidential.Checked = false;
+                    Globals.Ribbons.Sensitive.toggleButtonInternal.Checked = false;
+                    Globals.Ribbons.Sensitive.toggleButtonPublic.Checked = false;
+                }
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(e.ToString());
+                throw;
             }
         }
+
+
+
+
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {

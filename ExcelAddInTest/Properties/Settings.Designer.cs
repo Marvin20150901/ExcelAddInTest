@@ -34,5 +34,17 @@ namespace ExcelAddInTest.Properties {
                 this["IsMask"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsImageUpdata {
+            get {
+                return ((bool)(this["IsImageUpdata"]));
+            }
+            set {
+                this["IsImageUpdata"] = value;
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ExcelAddInTest
+﻿namespace WordAddInConfidential
 {
     partial class Sensitive : Microsoft.Office.Tools.Ribbon.RibbonBase
     {
@@ -155,7 +155,7 @@
             // Sensitive
             // 
             this.Name = "Sensitive";
-            this.RibbonType = "Microsoft.Excel.Workbook";
+            this.RibbonType = "Microsoft.Word.Document";
             this.Tabs.Add(this.tab1);
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Sensitive_Load);
             this.tab1.ResumeLayout(false);
@@ -176,10 +176,10 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButtonInternal;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButtonPublic;
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonClearTags;
         internal Microsoft.Office.Tools.Ribbon.RibbonSplitButton splitButtonMark;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButtonMarkYes;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButtonMarkNo;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonClearTags;
     }
 
     partial class ThisRibbonCollection
