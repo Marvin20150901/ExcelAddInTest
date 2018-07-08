@@ -21,6 +21,7 @@ namespace WordAddInConfidential
 
             //this.Application.DocumentChange;
             this.Application.WindowActivate += Application_WindowActivate;
+            this.Application.DocumentOpen += Application_DocumentOpen;
 
             if (Properties.Settings.Default.IsMask)
             {
@@ -70,53 +71,32 @@ namespace WordAddInConfidential
 
         private void Application_DocumentOpen(Word.Document Doc)
         {
-            //throw new NotImplementedException();
 
-            
+            Microsoft.Office.Core.DocumentProperties prp = Doc.CustomDocumentProperties;
 
-            /*
-            foreach (Word.Section section in this.Application.ActiveDocument.Sections)
+            bool isFileGuid = false;
+
+            string fileGuid = string.Empty;
+
+            foreach (Microsoft.Office.Core.DocumentProperty documentProperty in prp)
             {
-
-                Word.Range headerRange = section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
-                //headerRange.Fields.Add(headerRange, Word.WdFieldType.wdFieldPage);
-                //headerRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
-
-                //section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range
-                if (!File.Exists("Secret.png"))
-                {
-                    Properties.Resources.Secret.Save("Secret.png");
-                }
-
-
-                int left = 0;
-                int top = 0;
-                int height = 40;
-                int width = 180;
-
-                object lt = false;
-                object sw = true;
-                object lf = (object) left;
-                object tp = (object) top;
-                object wd = (object) width;
-                object hg = (object) height;
-
-
-                //Word.InlineShape varShape= headerRange.InlineShapes.AddPicture("Secret.png");
-
-                //Word.Shape varShape=section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Shapes.AddPicture("Secret.png",ref lt,ref sw,ref lf,ref tp,ref wd,ref hg);
-                Word.Shape varShape = section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Shapes
-                    .AddPicture("Secret.png");
                 
-                varShape.RelativeHorizontalPosition =
-                    Word.WdRelativeHorizontalPosition.wdRelativeHorizontalPositionPage;
-                varShape.RelativeVerticalPosition = Word.WdRelativeVerticalPosition.wdRelativeVerticalPositionPage;
-                varShape.TopRelative = 0;
-                varShape.LeftRelative = 0;
-
+                if (documentProperty.Name.Equals("FileGuid"))
+                {
+                    fileGuid = documentProperty.Value;
+                    isFileGuid = true;
+                }
             }
-            */
-            
+
+            //add Guid to the file
+            if (isFileGuid == false)
+            {
+                fileGuid = System.Guid.NewGuid().ToString();
+                prp.Add("FileGuid", false, Office.MsoDocProperties.msoPropertyTypeString, fileGuid, null);
+            }
+
+            //MessageBox.Show(fileGuid);
+
         }
 
 
