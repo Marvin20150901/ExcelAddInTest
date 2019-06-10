@@ -189,6 +189,7 @@
       <SubType>Code</SubType>
     </Compile>
     <EmbeddedResource Include="Ribbon1.xml" />
+    <None Include="ExcelAddInTest_3_TemporaryKey.pfx" />
     <None Include="Resources\Internal.png" />
     <None Include="Resources\Confidential.png" />
     <None Include="Resources\Secret.png" />
@@ -252,10 +253,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ExcelAddInTest_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>ExcelAddInTest_3_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>D310165F61030CA263A4BFE4B518D7DFA3D35C54</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>DD6ADB708F5527E5ACA139E05E0D38268AF444A6</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

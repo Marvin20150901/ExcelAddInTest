@@ -24,7 +24,7 @@ namespace WordAddInConfidential
                 Directory.CreateDirectory(appPath);
             }
 
-            if (!File.Exists(appPath+@"Secret.pang"))
+            if (!File.Exists(appPath+@"Secret.png"))
             {
                 Properties.Resources.Secret.Save(appPath+@"Secret.png");
                 Properties.Resources.Internal.Save(appPath+@"Internal.png");
@@ -310,6 +310,7 @@ namespace WordAddInConfidential
                 Microsoft.Office.Core.DocumentProperties prp = Globals.ThisAddIn.Application.ActiveDocument.CustomDocumentProperties;
 
                 bool isSenitive = false;
+                bool isFileGuid = false;
 
                 foreach (Microsoft.Office.Core.DocumentProperty documentProperty in prp)
                 {
@@ -320,11 +321,23 @@ namespace WordAddInConfidential
                         documentProperty.Value = sensitive;
                         isSenitive = true;
                     }
+
+                    if (documentProperty.Name.Equals("FileGuid"))
+                    {
+                        isFileGuid = true;
+                    }
                 }
 
                 if (isSenitive == false)
                 {
                     prp.Add("Sensitive", false, Microsoft.Office.Core.MsoDocProperties.msoPropertyTypeString, sensitive, null);
+                }
+
+                //add Guid to the file
+                if (isFileGuid==false)
+                {
+                    var fileGuid = System.Guid.NewGuid().ToString();
+                    prp.Add("FileGuid", false, Office.MsoDocProperties.msoPropertyTypeString, fileGuid, null);
                 }
 
                 Globals.ThisAddIn.InitRabbionControl(sensitive);
